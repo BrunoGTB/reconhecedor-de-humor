@@ -1,4 +1,3 @@
-import numpy as np
 from scripts.face_tracking import face_tracking
 import cv2 as cv
 
@@ -19,7 +18,7 @@ while True:
         break
 
     frame = cv.flip(frame, 1)   # Inverte a câmera horizontalmente, para a sensação de espelho
-    face_tracking(frame)        # Detecção/Tracking de faces 
+    frame = face_tracking(frame)        # Detecção/Tracking de faces 
 
     cv.imshow("Detector de Emocoes", frame)
 
