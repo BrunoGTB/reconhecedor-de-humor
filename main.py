@@ -1,4 +1,4 @@
-from scripts.face_tracking import face_tracking
+from scripts.face_mesh import face_meshing
 import cv2 as cv
 
 # Inicialização da Câmera
@@ -18,7 +18,7 @@ while True:
         break
 
     frame = cv.flip(frame, 1)   # Inverte a câmera horizontalmente, para a sensação de espelho
-    frame = face_tracking(frame)        # Detecção/Tracking de faces 
+    frame = face_meshing(frame)        # Detecta Malha Facial 
 
     cv.imshow("Detector de Emocoes", frame)
 
