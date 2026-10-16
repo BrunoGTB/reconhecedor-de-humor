@@ -12,16 +12,22 @@ MODEL_PATH = (
 )
 
 # Criando um Objeto de Malha Facial
-base_options = python.BaseOptions(model_asset_path=str(MODEL_PATH))
-opcoes = vision.FaceLandmarkerOptions(base_options=base_options,
-                                       output_face_blendshapes=True,
-                                       output_facial_transformation_matrixes=True,
-                                       num_faces=1)
+base_options = python.BaseOptions(
+    model_asset_path=str(MODEL_PATH),
+    delegate=python.BaseOptions.Delegate.CPU
+)
+opcoes = vision.FaceLandmarkerOptions(
+    base_options=base_options,
+    output_face_blendshapes=True,
+    output_facial_transformation_matrixes=True,
+    num_faces=1
+)
 reconhecedor_malha_facial = vision.FaceLandmarker.create_from_options(opcoes)
 
 def face_meshing(frame):
     rgb = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
     frame_mp = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
+    
     # Detecta faces no frame
     faces = reconhecedor_malha_facial.detect(frame_mp)
 
