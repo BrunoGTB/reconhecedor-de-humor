@@ -1,2 +1,7 @@
 __pycache__
-.env
+.venvdata/csv/
+data/pickle/
+data/dataset/
+data/csv/
+data/datasets/
+data/pickle/
